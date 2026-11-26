@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiyat Al & Sipariş Ver | Ezgi Halı Yıkama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">E</div>
+        <div class="logo-text"><strong>EZGİ</strong><small>Halı Yıkama</small></div>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html#hizmetler">Hizmetler</a>
+        <a href="index.html#sss">SSS</a>
+        <a href="siparis.html" class="btn btn-primary">Fiyat Al & Sipariş Ver</a>
+        <a href="panel.html" class="btn btn-outline" title="Mağaza paneline geç (demo)">🏪 Mağaza Paneli</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Ana Sayfa</a> / Sipariş</div>
+      <h1>Fiyat Al & Sipariş Oluştur</h1>
+      <p>Halılarınızı ekleyin, fiyatınızı görün ve ücretsiz alım için adresinizi girin.</p>
+    </div>
+  </div>
+
+  <main class="order-wrap">
+    <div class="container">
+
+      <div class="progress" id="progress">
+        <div class="progress-step active" data-step="1"><span class="num">1</span><span class="label">Halılar & Fiyat</span></div>
+        <div class="progress-step" data-step="2"><span class="num">2</span><span class="label">Adres & Zaman</span></div>
+        <div class="progress-step" data-step="3"><span class="num">3</span><span class="label">Onay</span></div>
+      </div>
+
+      <div class="order-grid">
+        <div>
+          <!-- ADIM 1: Halılar -->
+          <div class="panel" data-panel="1">
+            <h2>Yıkatmak istediğiniz halılar</h2>
+            <p class="muted">Her halı için türünü ve ölçüsünü seçin. Aynı ölçüde birden fazla halınız varsa adet girebilirsiniz.</p>
+            <div class="rug-list" id="rugList"></div>
+            <button type="button" class="add-rug" id="addRug">+ Halı Ekle</button>
+            <div class="panel-actions">
+              <a href="index.html" class="btn btn-outline">← Ana Sayfa</a>
+              <button type="button" class="btn btn-primary" id="toStep2">Devam Et: Adres Bilgileri →</button>
+            </div>
+          </div>
+
+          <!-- ADIM 2: Adres -->
+          <form class="panel hidden" data-panel="2" id="addressForm" novalidate>
+            <h2>İletişim ve adres bilgileri</h2>
+            <p class="muted">Ekibimiz halılarınızı bu adresten teslim alacaktır.</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Ad Soyad *</label>
+                <input id="name" name="name" autocomplete="name" required />
+                <span class="err">Lütfen adınızı ve soyadınızı girin.</span>
+              </div>
+              <div class="field">
+                <label for="phone">Telefon *</label>
+                <input id="phone" name="phone" type="tel" placeholder="05xx xxx xx xx" autocomplete="tel" required />
+                <span class="err">Geçerli bir telefon numarası girin.</span>
+              </div>
+              <div class="field">
+                <label for="city">İl *</label>
+                <input id="city" name="city" autocomplete="address-level1" required />
+                <span class="err">İl gereklidir.</span>
+              </div>
+              <div class="field">
+                <label for="district">İlçe *</label>
+                <input id="district" name="district" autocomplete="address-level2" required />
+                <span class="err">İlçe gereklidir.</span>
+              </div>
+              <div class="field full">
+                <label for="neighborhood">Mahalle *</label>
+                <input id="neighborhood" name="neighborhood" required />
+                <span class="err">Mahalle gereklidir.</span>
+              </div>
+              <div class="field full">
+                <label for="address">Açık adres (sokak, bina no, daire no) *</label>
+                <textarea id="address" name="address" rows="3" autocomplete="street-address" required></textarea>
+                <span class="err">Açık adres gereklidir.</span>
+              </div>
+              <div class="field">
+                <label for="date">Tercih edilen alım tarihi *</label>
+                <input id="date" name="date" type="date" required />
+                <span class="err">Bugünden sonraki bir tarih seçin (Pazar hariç).</span>
+              </div>
+              <div class="field">
+                <label>Zaman aralığı *</label>
+                <div class="slot-group">
+                  <label><input type="radio" name="slot" value="09:00 – 12:00" checked /> 09–12</label>
+                  <label><input type="radio" name="slot" value="12:00 – 15:00" /> 12–15</label>
+                  <label><input type="radio" name="slot" value="15:00 – 18:00" /> 15–18</label>
+                </div>
+              </div>
+              <div class="field full">
+                <label for="note">Not (isteğe bağlı)</label>
+                <textarea id="note" name="note" rows="2" placeholder="Örn. zile basmayın, kapıcıya bırakılacak, lekeli bölge var..."></textarea>
+              </div>
+            </div>
+            <div class="panel-actions">
+              <button type="button" class="btn btn-outline" data-goto="1">← Halılara Dön</button>
+              <button type="submit" class="btn btn-primary">Devam Et: Onay →</button>
+            </div>
+          </form>
+
+          <!-- ADIM 3: Onay -->
+          <div class="panel hidden" data-panel="3">
+            <h2>Siparişinizi kontrol edin</h2>
+            <p class="muted">Bilgilerinizi kontrol edip siparişinizi onaylayın.</p>
+
+            <div class="review-block">
+              <h4>Halılar <button type="button" data-goto="1">Düzenle</button></h4>
+              <table class="review-table" id="reviewRugs"></table>
+            </div>
+
+            <div class="review-block">
+              <h4>Adres & Alım Zamanı <button type="button" data-goto="2">Düzenle</button></h4>
+              <dl class="kv" id="reviewAddress"></dl>
+            </div>
+
+            <div class="pay-info">
+              <span style="font-size:1.4rem">💳</span>
+              <div>
+                <strong>Ödeme teslimatta yapılır.</strong><br />
+                Şu an online ödeme bulunmamaktadır. Ödemenizi halılarınız teslim edilirken nakit veya kredi kartı ile yapabilirsiniz.
+                Kesin tutar, halılar teslim alınırken yapılan ölçüme göre belirlenir.
+              </div>
+            </div>
+
+            <label class="check">
+              <input type="checkbox" id="agree" />
+              <span>Sipariş koşullarını ve kişisel verilerimin sipariş sürecinde işlenmesini (KVKK) kabul ediyorum.</span>
+            </label>
+
+            <div class="panel-actions">
+              <button type="button" class="btn btn-outline" data-goto="2">← Geri</button>
+              <button type="button" class="btn btn-primary btn-lg" id="submitOrder" disabled>Siparişi Onayla</button>
+            </div>
+          </div>
+
+          <!-- BAŞARILI -->
+          <div class="panel success hidden" data-panel="4">
+            <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></div>
+            <h2>Siparişiniz alındı!</h2>
+            <p class="muted">Teşekkür ederiz. Ekibimiz alım saatini teyit etmek için sizi kısa süre içinde arayacaktır.</p>
+            <div class="order-no" id="orderNo"></div>
+            <p class="muted" id="successInfo"></p>
+            <div class="panel-actions" style="justify-content:center">
+              <a href="index.html" class="btn btn-outline">Ana Sayfaya Dön</a>
+              <a href="siparis.html" class="btn btn-primary">Yeni Sipariş Oluştur</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Özet -->
+        <aside class="panel summary" id="summary">
+          <h3>Sipariş Özeti</h3>
+          <div class="summary-lines" id="summaryLines"></div>
+          <div class="summary-lines" style="border:0;padding-top:1rem">
+            <div class="line"><span>Toplam halı</span><span id="sumCount">0 adet</span></div>
+            <div class="line"><span>Toplam alan</span><span id="sumM2">0 m²</span></div>
+            <div class="line"><span>Alım & teslimat</span><span style="color:var(--teal);font-weight:600">Ücretsiz</span></div>
+            <div class="line hidden" id="minLine"><span>Min. sipariş farkı</span><span id="minDiff"></span></div>
+          </div>
+          <div class="summary-total">
+            <span class="muted">Toplam</span>
+            <strong id="sumTotal">₺0</strong>
+          </div>
+          <div class="summary-note">
+            <ul>
+              <li>Fiyatlara KDV dahildir.</li>
+              <li>Ödeme teslimatta nakit veya kartla.</li>
+              <li>Ortalama teslim süresi 3–5 iş günü.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="padding-top:2rem">
+    <div class="container">
+      <div class="footer-bottom" style="margin-top:0;border:0">
+        <span>© <span data-year></span> Ezgi Halı Yıkama. Tüm hakları saklıdır.</span>
+        <span>Bu site bir demo sürümüdür.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/siparis.js"></script>
+</body>
+</html>

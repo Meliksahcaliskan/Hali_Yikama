@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ezgi Halı Yıkama | Profesyonel Halı Yıkama ve Ev Temizliği</title>
+  <meta name="description" content="Ezgi Halı Yıkama: Ücretsiz servisle kapınızdan alıp, hijyenik olarak yıkayıp teslim ediyoruz. Fiyatınızı hemen hesaplayın, online sipariş verin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Üst bilgi -->
+  <div class="topbar">
+    <div class="container">
+      <span>📍 Ücretsiz alım ve teslimat hizmeti</span>
+      <span>📞 <span class="js-phone">0 (850) 000 00 00</span> &nbsp;·&nbsp; 🕘 Pzt–Cmt 08:00–20:00</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">E</div>
+        <div class="logo-text"><strong>EZGİ</strong><small>Halı Yıkama</small></div>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="active">Ana Sayfa</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#nasil">Nasıl Çalışır</a>
+        <a href="#sss">SSS</a>
+        <a href="siparis.html" class="btn btn-primary">Fiyat Al & Sipariş Ver</a>
+        <a href="panel.html" class="btn btn-outline" title="Mağaza paneline geç (demo)">🏪 Mağaza Paneli</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="badge">PROFESYONEL HALI YIKAMA</span>
+        <h1>Halılarınız <em>ilk günkü</em> gibi temiz, eviniz daha sağlıklı.</h1>
+        <p class="lead">Halılarınızı kapınızdan alıyor, son teknoloji makinelerle hijyenik olarak yıkıyor, kurutup paketleyerek geri teslim ediyoruz.</p>
+        <div class="hero-actions">
+          <a href="siparis.html" class="btn btn-primary btn-lg">Hemen Fiyat Hesapla →</a>
+          <a href="#nasil" class="btn btn-outline btn-lg">Nasıl Çalışır?</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>15+</strong><span>Yıllık tecrübe</span></div>
+          <div><strong>25.000+</strong><span>Yıkanan halı</span></div>
+          <div><strong>%98</strong><span>Müşteri memnuniyeti</span></div>
+        </div>
+      </div>
+
+      <!-- Hızlı hesaplama kartı -->
+      <div class="hero-card">
+        <h3>Hızlı Fiyat Hesapla</h3>
+        <p class="muted">Halı türünü ve toplam metrekareyi seçin, tahmini fiyatı görün.</p>
+        <div class="field" style="margin-top:1rem">
+          <label for="qType">Halı türü</label>
+          <select id="qType"></select>
+        </div>
+        <div class="form-grid" style="margin-top:1rem">
+          <div class="field">
+            <label for="qCount">Halı adedi</label>
+            <input id="qCount" type="number" min="1" value="2" />
+          </div>
+          <div class="field">
+            <label for="qM2">Toplam m²</label>
+            <input id="qM2" type="number" min="1" step="0.5" value="10" />
+          </div>
+        </div>
+        <div class="summary-total">
+          <span class="muted">Tahmini tutar</span>
+          <strong id="qTotal">—</strong>
+        </div>
+        <a href="siparis.html" id="qGo" class="btn btn-primary" style="width:100%;margin-top:1.2rem">Detaylı Sipariş Oluştur</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nasıl çalışır -->
+  <section id="nasil">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Nasıl Çalışır</span>
+        <h2>4 adımda tertemiz halılar</h2>
+        <p class="muted">Siparişinizi birkaç dakikada oluşturun, gerisini bize bırakın.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+          <h3>Fiyatınızı Hesaplayın</h3>
+          <p>Halı sayısını, türünü ve ölçülerini seçin; fiyatınızı anında görün.</p>
+        </div>
+        <div class="step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <h3>Adresinizi Girin</h3>
+          <p>Adres ve uygun alım zamanınızı belirtip siparişinizi oluşturun.</p>
+        </div>
+        <div class="step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+          <h3>Kapınızdan Alalım</h3>
+          <p>Ekibimiz belirttiğiniz zaman diliminde halılarınızı ücretsiz teslim alır.</p>
+        </div>
+        <div class="step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Temiz Teslim</h3>
+          <p>Yıkanan, kurutulan ve paketlenen halılarınızı kapınıza getiririz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmetler & fiyatlar -->
+  <section id="hizmetler" class="bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Hizmetler & Fiyatlar</span>
+        <h2>Her halıya özel yıkama</h2>
+        <p class="muted">Halınızın dokusuna uygun yöntem ve ürünlerle, şeffaf metrekare fiyatlandırması.</p>
+      </div>
+      <div class="cards" id="serviceCards"></div>
+      <p class="muted" style="text-align:center;margin-top:1.5rem;font-size:.88rem">
+        * Fiyatlara KDV dahildir. Alım ve teslimat ücretsizdir. Minimum sipariş tutarı <span id="minOrderTxt"></span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Neden biz -->
+  <section>
+    <div class="container why">
+      <div>
+        <div class="section-head" style="text-align:left;margin:0 0 2rem">
+          <span class="eyebrow">Neden Ezgi?</span>
+          <h2>Güvenilir, hızlı ve hijyenik hizmet</h2>
+        </div>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div>
+            <div><h4>Sağlığa Uygun Ürünler</h4><p>Çocuk ve evcil hayvan dostu, sertifikalı temizlik ürünleri kullanıyoruz.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><h4>3–5 Günde Teslim</h4><p>Kapalı kurutma odalarımız sayesinde mevsimden bağımsız hızlı teslimat.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H4v4M4 12v8h16v-8M2 8h20M12 8v12"/></svg></div>
+            <div><h4>Özenli Paketleme</h4><p>Halılarınız yıkama sonrası özel ambalajla paketlenerek teslim edilir.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg></div>
+            <div><h4>Kapıda Ödeme</h4><p>Ödemenizi teslimat sırasında nakit veya kredi kartı ile yapabilirsiniz.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="stat"><span class="muted">Ortalama teslim süresi</span><strong>4 gün</strong></div>
+        <div class="stat"><span class="muted">Alım & teslimat</span><strong>Ücretsiz</strong></div>
+        <div class="stat"><span class="muted">Yıkama aşaması</span><strong>7 adım</strong></div>
+        <div class="stat"><span class="muted">Memnuniyet garantisi</span><strong>%100</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section id="sss" class="bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Sıkça Sorulan Sorular</span>
+        <h2>Merak ettikleriniz</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Fiyat nasıl hesaplanıyor?</summary>
+          <p>Fiyat, halı türüne göre belirlenen metrekare birim fiyatı ile halının metrekaresinin çarpılmasıyla hesaplanır. Sipariş ekranında her halı için ayrı ayrı hesaplama görürsünüz.</p>
+        </details>
+        <details>
+          <summary>Halının ölçüsünü bilmiyorum, ne yapmalıyım?</summary>
+          <p>Hazır ölçülerden size en yakın olanı seçebilirsiniz. Halılar teslim alınırken ekibimiz tarafından ölçülür; kesin tutar bu ölçüme göre belirlenir ve size bildirilir.</p>
+        </details>
+        <details>
+          <summary>Ödemeyi nasıl yapacağım?</summary>
+          <p>Şu an online ödeme bulunmamaktadır. Ödemenizi halılarınız teslim edilirken nakit veya kredi kartı ile yapabilirsiniz.</p>
+        </details>
+        <details>
+          <summary>Halılarım ne zaman teslim edilir?</summary>
+          <p>Halılarınız teslim alındıktan sonra ortalama 3–5 iş günü içinde yıkanıp kurutularak adresinize teslim edilir.</p>
+        </details>
+        <details>
+          <summary>Alım ve teslimat ücretli mi?</summary>
+          <p>Hayır. Hizmet bölgemiz içinde alım ve teslimat tamamen ücretsizdir.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Halılarınızı yıkatmaya hazır mısınız?</h2>
+          <p>Fiyatınızı birkaç saniyede öğrenin, siparişinizi hemen oluşturun.</p>
+        </div>
+        <a href="siparis.html" class="btn btn-light btn-lg">Sipariş Oluştur →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:1rem">
+            <div class="logo-mark">E</div>
+            <div class="logo-text"><strong>EZGİ</strong><small style="color:#9fb3cb">Halı Yıkama</small></div>
+          </div>
+          <p>Profesyonel halı yıkama ve ev temizliği hizmetleri. Temizliği işimiz değil, işimizin temeli olarak görüyoruz.</p>
+        </div>
+        <div>
+          <h4>Hizmetler</h4>
+          <ul>
+            <li><a href="#hizmetler">Halı Yıkama</a></li>
+            <li><a href="#" title="Yakında">Ev Temizliği <small>(yakında)</small></a></li>
+            <li><a href="#" title="Yakında">Koltuk Yıkama <small>(yakında)</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kurumsal</h4>
+          <ul>
+            <li><a href="#nasil">Nasıl Çalışır</a></li>
+            <li><a href="#sss">SSS</a></li>
+            <li><a href="panel.html">Mağaza Paneli (demo)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>İletişim</h4>
+          <ul>
+            <li>📞 <span class="js-phone">0 (850) 000 00 00</span></li>
+            <li>💬 WhatsApp: <span class="js-wa"></span></li>
+            <li>✉️ <span class="js-mail"></span></li>
+            <li>🕘 Pzt–Cmt 08:00–20:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> Ezgi Halı Yıkama. Tüm hakları saklıdır.</span>
+        <span>Bu site bir demo sürümüdür.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    // Hizmet kartları
+    document.getElementById("serviceCards").innerHTML = EZGI.rugTypes.map(t => `
+      <div class="card">
+        <h3>${t.name}</h3>
+        <p>${t.desc}</p>
+        <div class="price">${fmtTL(t.price)} <small>/ m²</small></div>
+      </div>`).join("");
+    document.getElementById("minOrderTxt").textContent = fmtTL(EZGI.minOrder);
+    document.querySelectorAll(".js-phone").forEach(e => e.textContent = EZGI.phone);
+    document.querySelectorAll(".js-wa").forEach(e => e.textContent = EZGI.whatsapp);
+    document.querySelectorAll(".js-mail").forEach(e => e.textContent = EZGI.email);
+
+    // Hızlı hesaplama
+    const qType = document.getElementById("qType");
+    qType.innerHTML = EZGI.rugTypes.map(t => `<option value="${t.id}">${t.name} — ${fmtTL(t.price)}/m²</option>`).join("");
+    const qCount = document.getElementById("qCount"), qM2 = document.getElementById("qM2");
+    function quick() {
+      const m2 = Math.max(0, parseFloat(qM2.value) || 0);
+      const total = m2 * getRugType(qType.value).price;
+      document.getElementById("qTotal").textContent = m2 ? fmtTL(Math.max(total, EZGI.minOrder)) : "—";
+      document.getElementById("qGo").href = `siparis.html?tur=${qType.value}&adet=${parseInt(qCount.value) || 1}&m2=${m2}`;
+    }
+    [qType, qCount, qM2].forEach(el => el.addEventListener("input", quick));
+    quick();
+  </script>
+</body>
+</html>

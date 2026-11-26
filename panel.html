@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mağaza Paneli (Demo) | Ezgi Halı Yıkama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">E</div>
+        <div class="logo-text"><strong>EZGİ</strong><small>Mağaza Paneli</small></div>
+      </a>
+      <nav class="nav" style="display:flex;position:static;flex-direction:row;padding:0;border:0">
+        <a href="index.html" class="btn btn-primary">👤 Müşteri Sitesine Geç</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <h1>Gelen Siparişler</h1>
+      <p>Demo: Siparişler bu tarayıcıda saklanır. Gerçek sürümde sunucu/veritabanı kullanılacaktır.</p>
+    </div>
+  </div>
+
+  <main class="order-wrap">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:1rem;flex-wrap:wrap">
+        <strong id="countTxt" style="color:var(--navy)"></strong>
+        <button class="btn btn-outline" id="clearAll">Tüm demo siparişlerini sil</button>
+      </div>
+      <div class="panel" style="padding:0;overflow-x:auto">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Sipariş No</th><th>Müşteri</th><th>Adres</th><th>Alım</th><th>Halılar</th><th>Tutar</th><th>Durum</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const STATUS = { new: "Yeni", picked: "Teslim alındı", done: "Teslim edildi" };
+
+    function render() {
+      const orders = loadOrders();
+      document.getElementById("countTxt").textContent = `${orders.length} sipariş`;
+      document.getElementById("rows").innerHTML = orders.length ? orders.map((o, i) => {
+        const c = o.customer;
+        return `<tr>
+          <td><strong>${esc(o.no)}</strong><br><small class="muted">${new Date(o.createdAt).toLocaleString("tr-TR")}</small></td>
+          <td>${esc(c.name)}<br><small class="muted">${esc(c.phone)}</small></td>
+          <td>${esc(c.neighborhood)} Mah., ${esc(c.address)}<br>${esc(c.district)} / ${esc(c.city)}${c.note ? `<br><small class="muted">Not: ${esc(c.note)}</small>` : ""}</td>
+          <td>${new Date(c.date + "T00:00").toLocaleDateString("tr-TR")}<br><small class="muted">${esc(c.slot)}</small></td>
+          <td>${o.rugs.map(r => `${r.qty} × ${esc(r.typeName)} (${fmtM2(r.m2)})`).join("<br>")}</td>
+          <td><strong>${fmtTL(o.totals.total)}</strong><br><small class="muted">${esc(o.payment)}</small></td>
+          <td>
+            <span class="status status-${o.status}">${STATUS[o.status]}</span><br>
+            <select data-i="${i}" style="margin-top:.4rem">
+              ${Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${k === o.status ? "selected" : ""}>${v}</option>`).join("")}
+            </select>
+          </td>
+        </tr>`;
+      }).join("") : `<tr><td colspan="7" class="muted" style="text-align:center;padding:3rem">Henüz sipariş yok. <a href="siparis.html" style="color:var(--teal)">Bir demo sipariş oluşturun →</a></td></tr>`;
+    }
+
+    document.getElementById("rows").addEventListener("change", (e) => {
+      if (!e.target.dataset.i) return;
+      const orders = loadOrders();
+      orders[+e.target.dataset.i].status = e.target.value;
+      saveOrders(orders);
+      render();
+    });
+    document.getElementById("clearAll").addEventListener("click", () => {
+      if (confirm("Tüm demo siparişleri silinsin mi?")) { saveOrders([]); render(); }
+    });
+    render();
+  </script>
+</body>
+</html>
